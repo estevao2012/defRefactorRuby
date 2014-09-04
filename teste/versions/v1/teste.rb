@@ -1,0 +1,11 @@
+class Teste
+  attr_accessor :attr1
+
+  def initialize
+    @attr1 = "teste"
+    @attr3 = ""
+  end  
+
+  def self.method_um
+  end
+end
