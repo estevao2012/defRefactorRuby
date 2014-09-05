@@ -1,11 +1,9 @@
-require "#{File.dirname(__FILE__)}/refactor/core.rb" 
+Dir["#{File.dirname(__FILE__)}/refactor/*.rb"].each {|file| require file }
 
 class Main
-  include Refactor
-
+  include Refactor 
   def self.run folder
-    folder = File.new(folder) 
-    versions = folder.path+"/versions/"
-    Core.init versions
+    versions = File.new("#{File.dirname(__FILE__)}/toys/#{folder}/versions/")  
+    refactor = Core.new versions  
   end
 end
