@@ -1,13 +1,15 @@
 module Refactor
   class Core
-    attr_accessor :version_path, :versions
+    
+    attr_accessor :version_path
+    
     def initialize versions
-      @version_path = versions
-      @versions = get_versions
+      @version_path = versions 
     end
 
-    def get_versions
+    def versions
       Dir.glob("#{@version_path.path}/*").select {|f| File.directory? f}.map{ |version| Version.new version}
     end
+
   end
 end

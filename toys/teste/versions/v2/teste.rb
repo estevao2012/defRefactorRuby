@@ -6,7 +6,7 @@ class Teste
     @attr3 = ""
   end  
 
-  def method_um teste
+  def method_um
   end
-  
+
 end
