@@ -7,7 +7,7 @@ module Refactor
       @folder_version = folder_version
     end
 
-    def files
+    def klasses
       rbfiles = File.join("#{@folder_version}/**", "*.rb")
       files = Dir.glob(rbfiles).map{ |f| Klass.new f}
       files

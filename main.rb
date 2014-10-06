@@ -8,9 +8,9 @@ class Main
 
   def self.run folder
     versions = File.new("#{File.dirname(__FILE__)}/toys/#{folder}/versions/")  
-    refactor = Core.new versions  
-    obj_file = refactor.versions.last.files.last
-    obj_file.klass
+    core_versions = Core.new versions  
+    core_versions.run_parallel_versions 
   end
-
 end
+
+Main.run 'teste'

@@ -1,5 +1,5 @@
 module Altera
-  class Op
+  class Croacia
     def method_um
       
     end
