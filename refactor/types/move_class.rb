@@ -19,7 +19,7 @@ module Refactor
     end
 
     def same_class klass_v1, klass_v2 
-      klass_v1.all_methods_of_klass == klass_v2.all_methods_of_klass && klass_v1.klass.attributes == klass_v2.klass.attributes && klass_v1.name_klass == klass_v2.name_klass
+      klass_v1.methods == klass_v2.methods && klass_v1.klass.attributes == klass_v2.klass.attributes && klass_v1.name_klass == klass_v2.name_klass
     end
   end
 end

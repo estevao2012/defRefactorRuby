@@ -1,43 +1,40 @@
 module Refactor
-  class MoveMethod
+  class MoveMethod  < BaseRefactor  
 
-    attr_accessor :first_klasses, :second_klasses
+    def run   
+      removed = Hash.new
+      added = Hash.new
 
-    def initialize first_klasses, second_klasses
-      @first_klasses = first_klasses
-      @second_klasses = second_klasses
-      self.run
-    end
-
-    def run 
-      @first_klasses.each do |klass_v1|    
-        @second_klasses.each do |klass_v2|
-
-          if filter_klass klass_v1, klass_v2
-
-            klass_v1.all_methods_of_klass.each do |method_v1|
-              klass_v2.all_methods_of_klass.each do |method_v2|
-
-                if filter_method klass_v1.method(method_v1), klass_v2.method(method_v2)
-
-                end
-                
-              end
-            end   
-          end
+      @first_klasses.each do |klass_v1|
+        @second_klasses.each do |klass_v2| 
+          if equal_klass klass_v1, klass_v2    
+            added[klass_v1.name] = klass_v2.methods - klass_v1.methods if (klass_v2.methods - klass_v1.methods) != []
+            removed[klass_v2.name] = klass_v1.methods - klass_v2.methods if (klass_v1.methods - klass_v2.methods) != []
+          end 
         end
       end
+
+      removed.each do |i_removed, single_removed|
+        added.each do |i_add, single_add|
+          single_removed.each do |attrb|
+            if single_add.select{|e| e == attrb} != []
+              puts mensagem_sucesso i_removed, i_add, "Campo #{attrb}", "MoveMethod" 
+            end
+          end        
+          
+        end
+      end
+
+      puts removed
+      puts added
+    end 
+
+    def filter klass_v1, klass_v2 
     end
 
-    private 
-
-    def filter_klass klass_v1, klass_v2
-      klass_v1.name != klass_v2.name
-    end
-
-    def filter_method method_v1, method_v2
-      method_v1
+    def equal_klass klass_v1, klass_v2
+      klass_v1.name == klass_v2.name 
     end
 
   end
-end
+end 

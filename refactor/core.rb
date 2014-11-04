@@ -9,10 +9,10 @@ module Refactor
     end
 
     def run_parallel_versions  
-      # move_method = MoveMethod.new versions.first.klasses, versions.last.klasses 
-      move_field = MoveField.new versions.last.klasses, versions.first.klasses 
-      # move_class = MoveClass.new versions.first.klasses, versions.last.klasses 
-      # rename_class = RenameClass.new versions.first.klasses, versions.last.klasses 
+      move_method = MoveMethod.new versions.last.klasses, versions.first.klasses 
+      # move_field = MoveField.new versions.last.klasses, versions.first.klasses 
+      # move_class = MoveClass.new versions.last.klasses, versions.first.klasses 
+      # rename_class = RenameClass.new versions.last.klasses, versions.first.klasses 
     end
 
   end

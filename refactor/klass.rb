@@ -44,7 +44,7 @@ module Refactor
       self.klass.name.split('::').last
     end
 
-    def all_methods_of_klass
+    def methods
       (@klass.methods(false) + @klass.instance_methods(false))
     end 
   end
