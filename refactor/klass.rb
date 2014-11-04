@@ -1,33 +1,57 @@
+require 'fileutils'
+require 'tempfile'
 module Refactor
   class Klass
-    attr_accessor :klass, :stringfile, :filename
+    attr_accessor :klass, :stringfile, :filename, :instance
 
-    def initialize file  
+    def initialize file
       load File.new file
       dir, base = File.split(file)
-      @filename = base
+      @filename = base   
 
-      tmp_module = Module.dup 
-      tmp_module.class_eval File.read(file)  
+      tmp_module = Module.dup
+      tmp_module.class_eval File.read(file)
  
-      class_or_module = tmp_module.const_get( get_class_or_module(tmp_module).first ) 
-      obj = get_class class_or_module  
-      @klass = eval(obj.name.split("::")[1..100].join("::"))
-
-    end  
-
-    def get_class_or_module tmp_module
-      tmp_module.constants.select {|c| (tmp_module.const_get(c).is_a? Class or tmp_module.const_get(c).is_a? Module) } 
-    end
+      obj = get_class tmp_module
+      @klass = eval(obj.name.split("::")[1..100].join("::"))   
+    end   
 
     def get_class first_module
       if first_module.constants.empty? 
         first_module
       else
-        tmp_class = first_module.constants.select{|c| first_module.const_get(c).is_a? Class}.first
-        first_module.const_get(tmp_class)
+        get_class first_module.const_get(first_module.constants.first)
       end 
     end
 
+    def name
+      @klass.name.split("::")[1..100].join("::")
+    end
+
+    def parent
+      @klass.parent.to_s.split("::")[1..100].join("::")
+    end
+
+    def full_name
+      klass.name
+    end
+
+    def self.name_klass klass
+      klass.name.split('::').last
+    end
+
+    def name_klass
+      self.klass.name.split('::').last
+    end
+
+    def all_methods_of_klass
+      (@klass.methods(false) + @klass.instance_methods(false))
+    end 
   end
-end  
+end   
+
+# module ModuleOne
+# end
+
+# module ModuleTwo
+# end
