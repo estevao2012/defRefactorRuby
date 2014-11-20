@@ -1,4 +1,6 @@
+require "#{File.dirname(__FILE__)}/types/base_refactor.rb"
 Dir["#{File.dirname(__FILE__)}/types/*.rb"].each {|file| require file }
+
 module Refactor
   class Core    
     attr_accessor :versions
@@ -9,10 +11,11 @@ module Refactor
     end
 
     def run_parallel_versions  
-      move_method = MoveMethod.new versions.last.klasses, versions.first.klasses 
+      # move_method = MoveMethod.new versions.last.klasses, versions.first.klasses 
       # move_field = MoveField.new versions.last.klasses, versions.first.klasses 
       # move_class = MoveClass.new versions.last.klasses, versions.first.klasses 
       # rename_class = RenameClass.new versions.last.klasses, versions.first.klasses 
+      extractsuperclass_method = ExtractSuperclass.new versions.last.klasses, versions.first.klasses 
     end
 
   end

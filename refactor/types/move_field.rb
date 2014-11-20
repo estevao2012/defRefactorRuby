@@ -1,5 +1,5 @@
 module Refactor
-  class MoveField  < BaseRefactor  
+  class MoveField < BaseRefactor  
 
     def run   
       removed = Hash.new
@@ -21,12 +21,8 @@ module Refactor
               puts mensagem_sucesso i_removed, i_add, "Campo #{attrb}", "MoveField" 
             end
           end        
-          
         end
-      end
-
-      puts removed
-      puts added
+      end 
     end 
 
     def filter klass_v1, klass_v2 

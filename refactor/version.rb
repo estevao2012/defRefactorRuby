@@ -11,7 +11,8 @@ module Refactor
 
     def generate_klasses
       rbfiles = File.join("#{@folder_version}/**", "*.rb")
-      
+      path_files = []
+
       files = Dir.glob(rbfiles).map do |f|   
 
         dir, base = File.split(f)
@@ -29,10 +30,16 @@ module Refactor
         tmp_file.write(code_string)  
         tmp_file.close  
 
-        Klass.new(path_file)
+        path_files << path_file
+        load File.new path_file 
+      end  
+      klassess = []
+      path_files.each do |e| 
+        klassess << Klass.new(e)
       end
+      
 
-      files
+      return klassess
     end
   end
 end
