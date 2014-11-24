@@ -9,12 +9,13 @@ Utilização
 para utilizar esse script basta colar os arquivos das duas versões dentro 
 da pasta toys seguindo o padrão
 
-<Nome Do Projeto>/versions/v1
-<Nome Do Projeto>/versions/v2
+\<Nome Do Projeto\>/versions/v1
+
+\<Nome Do Projeto\>/versions/v2
 
 e executar
 
-./main.rb <Nome Do Projeto>
+./main.rb \<Nome Do Projeto\>
 
 Detalhes
 ================
