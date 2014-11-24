@@ -1,8 +1,9 @@
-require 'active_support'
-require 'active_support/dependencies'
-require 'method_source'
+#!/usr/bin/env ruby
 
-Dir["#{File.dirname(__FILE__)}/refactor/*.rb"].each {|file| require file }
+require 'active_support'
+require 'active_support/dependencies' 
+
+Dir["#{File.dirname(__FILE__)}/refactor/*.rb"].each {|file| require file } 
 
 class Main
   include Refactor 
@@ -14,4 +15,8 @@ class Main
   end
 end
 
-Main.run 'teste'
+Main.run ARGV[0]
+
+# https://github.com/wildbit/postmark-gem
+# https://github.com/oscardelben/Hare
+# https://github.com/mailjet/mailjet-gem

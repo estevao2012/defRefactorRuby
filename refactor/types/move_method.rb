@@ -18,15 +18,13 @@ module Refactor
         added.each do |i_add, single_add|
           single_removed.each do |attrb|
             if single_add.select{|e| e == attrb} != []
-              puts mensagem_sucesso i_removed, i_add, "Campo #{attrb}", "MoveMethod" 
+              puts mensagem_sucesso i_removed, i_add, "Metodo #{attrb}", "MoveMethod" 
+              @counter += 1
             end
           end        
           
         end
-      end
-
-      puts removed
-      puts added
+      end 
     end 
 
     def filter klass_v1, klass_v2 

@@ -1,0 +1,21 @@
+-- Move Method --
+Refactor MoveMethod Metodo attr2 Altera::Bulgaria to Altera::Op
+Refactor MoveMethod Metodo attr2= Altera::Bulgaria to Altera::Op
+Refactor MoveMethod Metodo method_um Altera::Bulgaria to Altera::Op
+Refactor MoveMethod Metodo teste_dois Teste to Altera::Op
+Refactor MoveMethod Metodo teste_dois= Teste to Altera::Op
+-- Move Field --
+Refactor MoveField Campo attr2 Altera::Bulgaria to Altera::Op
+Refactor MoveField Campo teste_dois Teste to Altera::Op
+-- Move Class -- 
+Refactor MoveClass Balbino::Balbinao to Altera::Balbinao
+-- Rename Class
+Refactor RenameClass Ortigoza to Saramandaia
+-- ExtractSuperclass --
+Refactor ExtractSuperclass , A Classe Altera::Bulgaria começou a herdar a Classe Altera::Pai
+-- Estatisticas --
+Total refactors Refactor::MoveMethod: 5
+Total refactors Refactor::MoveField: 2
+Total refactors Refactor::MoveClass: 1
+Total refactors Refactor::RenameClass: 1
+Total refactors Refactor::ExtractSuperclass: 1

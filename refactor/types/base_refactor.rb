@@ -11,8 +11,11 @@ module Refactor
 
     def processa_refactor
       self.run 
-      puts "Total refactors #{Klass.name_klass(self.class)}: #{@counter}"
     end 
+
+    def estatisticas
+      puts "Total refactors #{Klass.k_name(self.class)}: #{@counter}"
+    end
 
     def mensagem_sucesso v1, v2, custom, type
       "Refactor #{type} #{custom} #{v1} to #{v2}"
