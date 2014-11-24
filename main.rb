@@ -16,7 +16,3 @@ class Main
 end
 
 Main.run ARGV[0]
-
-# https://github.com/wildbit/postmark-gem
-# https://github.com/oscardelben/Hare
-# https://github.com/mailjet/mailjet-gem

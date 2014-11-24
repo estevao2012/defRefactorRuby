@@ -1,4 +1,4 @@
 module Balbino
-  class Balbinao
+  class Suica
   end
 end

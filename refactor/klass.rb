@@ -23,8 +23,7 @@ module Refactor
         @superclass = @constante.superclass
         @attributes = @constante.attributes
         remove_class_do_scopo
-      rescue Exception => erro
-        # puts erro
+      rescue Exception => erro 
       end
 
     end   

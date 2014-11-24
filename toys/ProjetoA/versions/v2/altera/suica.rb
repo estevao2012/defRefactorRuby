@@ -1,4 +1,4 @@
 module Altera
-  class Balbinao
+  class Suica
   end
 end
