@@ -12,12 +12,16 @@ module Refactor
       dir, base = File.split(file)
       @filename = base   
       @file = file
-
+      @methods = []
+      @name_klass = ""
+      @parent = ""
+      @superclass = ""
+      @attributes = []
  
       begin
         constroi_minha_classe
         @name_klass = @constante.name.split('::').last
-        @methods = (@constante.methods(false) + @constante.instance_methods(false)) 
+        @methods = (@constante.methods(false) + @constante.instance_methods(false))
         @name = @constante.name.split("::").join("::")
         @parent = @constante.parent.to_s.split("::").join("::")
         @superclass = @constante.superclass
